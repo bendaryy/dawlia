@@ -100,8 +100,8 @@ class manageDoucumentController extends Controller
 
                 ),
                 "type" => $request->receiverType,
-                "id" => $request->receiverId,
-                "name" => $request->receiverName,
+
+
             ),
             "documentType" => $request->DocumentType,
             "documentTypeVersion" => "1.0",
@@ -176,7 +176,7 @@ class manageDoucumentController extends Controller
         }
 
 // this is for receiver address
-
+        ($request->receiverName ? $invoice['receiver']['name'] = $request->receiverName : "");
         ($request->receiverCountry ? $invoice['receiver']["address"]['country'] = $request->receiverCountry : "");
         ($request->receiverBuildingNumber ? $invoice['receiver']["address"]['buildingNumber'] = $request->receiverBuildingNumber : "");
         ($request->street ? $invoice['receiver']["address"]['street'] = $request->street : "");
@@ -204,7 +204,7 @@ class manageDoucumentController extends Controller
         // End Bank payment
 
         $trnsformed = json_encode($invoice, JSON_UNESCAPED_UNICODE);
-        $myFileToJson = fopen("C:\laragon\www\cwatro\EInvoicing\SourceDocumentJson.json", "w") or die("unable to open file");
+        $myFileToJson = fopen("C:\laragon\www\dawlia\EInvoicing\SourceDocumentJson.json", "w") or die("unable to open file");
         fwrite($myFileToJson, $trnsformed);
         return redirect()->route('cer');
 
@@ -254,7 +254,7 @@ class manageDoucumentController extends Controller
 
                 ),
                 "type" => $request->receiverType,
-                "name" => $request->receiverName,
+
             ),
             "documentType" => $request->DocumentType,
             "documentTypeVersion" => "1.0",
@@ -329,7 +329,7 @@ class manageDoucumentController extends Controller
         }
 
         // this is for receiver address
-
+        ($request->receiverName ? $invoice['receiver']['name'] = $request->receiverName : "");
         ($request->receiverCountry ? $invoice['receiver']["address"]['country'] = $request->receiverCountry : "");
         ($request->receiverBuildingNumber ? $invoice['receiver']["address"]['buildingNumber'] = $request->receiverBuildingNumber : "");
         ($request->street ? $invoice['receiver']["address"]['street'] = $request->street : "");
@@ -357,7 +357,7 @@ class manageDoucumentController extends Controller
         // End Bank payment
 
         $trnsformed = json_encode($invoice, JSON_UNESCAPED_UNICODE);
-        $myFileToJson = fopen("C:\laragon\www\cwatro\EInvoicing\SourceDocumentJson.json", "w") or die("unable to open file");
+        $myFileToJson = fopen("C:\laragon\www\dawlia\EInvoicing\SourceDocumentJson.json", "w") or die("unable to open file");
         fwrite($myFileToJson, $trnsformed);
         return redirect()->route('cer');
 
@@ -368,11 +368,11 @@ class manageDoucumentController extends Controller
     public function openBat()
     {
 
-        shell_exec('C:\laragon\www\cwatro\EInvoicing/SubmitInvoices2.bat');
-        $path = "C:\laragon\www\cwatro\EInvoicing/FullSignedDocument.json";
-        $path2 = "C:\laragon\www\cwatro\EInvoicing/Cades.txt";
-        $path3 = "C:\laragon\www\cwatro\EInvoicing/CanonicalString.txt";
-        $path4 = "C:\laragon\www\cwatro\EInvoicing/SourceDocumentJson.json";
+        shell_exec('C:\laragon\www\dawlia\EInvoicing/SubmitInvoices2.bat');
+        $path = "C:\laragon\www\dawlia\EInvoicing/FullSignedDocument.json";
+        $path2 = "C:\laragon\www\dawlia\EInvoicing/Cades.txt";
+        $path3 = "C:\laragon\www\dawlia\EInvoicing/CanonicalString.txt";
+        $path4 = "C:\laragon\www\dawlia\EInvoicing/SourceDocumentJson.json";
 
         $fullSignedFile = file_get_contents($path);
 
@@ -620,11 +620,7 @@ class manageDoucumentController extends Controller
             return redirect()->route('receivedInvoices')->with('error', $cancel['error']['details'][0]['message']);
         }
 
-
     }
-
-
-
 
     public function DeclineRejectDocument($uuid)
     {

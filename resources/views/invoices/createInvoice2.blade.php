@@ -458,7 +458,7 @@
                                                     <div class="col-md-6">
                                                         <label class="form-label">@lang("site.Bank Name")</label>
                                                         <input type="text" class="form-control form-control-sm text-center"
-                                                            name="bankName" placeholder="@lang(" site.Bank Name")">
+                                                            name="bankName" placeholder='@lang(" site.Bank Name")'>
                                                     </div>
 
                                                     <div class="col-md-6">
@@ -469,36 +469,29 @@
 
                                                     <div class="row g-3">
                                                         <div class="col-md-6">
-                                                            <label class="form-label"> @lang("site.Bank Account
-                                                                No")</label>
+                                                            <label class="form-label"> @lang("site.Bank Account No")</label>
                                                             <input type="text"
                                                                 class="form-control form-control-sm text-center"
-                                                                name="bankAccountNo" placeholder=" @lang(" site.Bank Account
-                                                                No")">
+                                                                name="bankAccountNo" placeholder="@lang(" site.Bank Account No")">
                                                         </div>
 
                                                         <div class="col-md-6">
-                                                            <label class="form-label"> @lang("site.Bank Account
-                                                                IBAN")</label>
+                                                            <label class="form-label"> @lang("site.Bank Account IBAN")</label>
                                                             <input type="text"
                                                                 class="form-control form-control-sm text-center"
-                                                                name="bankAccountIBAN" placeholder="@lang(" site.Bank
-                                                                Account IBAN")">
+                                                                name="bankAccountIBAN" placeholder="@lang(" site.Bank Account IBAN")">
 
                                                         </div>
                                                         <div class="row g-3">
                                                             <div class="col-md-6">
-                                                                <label class="form-label"> @lang("site.Swift
-                                                                    Code")</label>
+                                                                <label class="form-label"> @lang("site.Swift Code")</label>
                                                                 <input type="text"
                                                                     class="form-control form-control-sm text-center"
-                                                                    name="swiftCode" placeholder="@lang(" site.Swift
-                                                                    Code")">
+                                                                    name="swiftCode" placeholder="@lang(" site.Swift Code")">
                                                             </div>
 
                                                             <div class="col-md-6">
-                                                                <label class="form-label"> @lang("site.Payment
-                                                                    Terms")</label>
+                                                                <label class="form-label"> @lang("site.Payment Terms")</label>
                                                                 <input type="text"
                                                                     class="form-control form-control-sm text-center"
                                                                     name="Bankterms" placeholder="@lang(" site.Payment

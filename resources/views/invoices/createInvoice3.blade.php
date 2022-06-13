@@ -558,10 +558,13 @@
                                                     <div class="mb-3">
                                                         <label for="inputProductTitle"
                                                             class="form-label">@lang("site.Line Item")</label>
-                                                        <select name="itemCode[]" id="itemCode"
-                                                            class="form-control form-control-sm">
-                                                            <option value="10001699" selected>أقمشة / منسوجات التطريز
-                                                            </option>
+                                                      <select name="itemCode[]" id="itemCode"
+                                                            class="form-control form-control-sm form-select single-select" required>
+                                                            @foreach ($products as $product)
+                                                                <option value="{{ $product['itemCode'] }}"
+                                                                    style="font-size: 20px">
+                                                                    {{ $product['codeNameSecondaryLang'] }}
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="mb-3">
@@ -877,9 +880,14 @@
                              <div class="mb-3">
                                 <label for="inputProductTitle"
                                     class="form-label">@lang("site.Line Item")</label>
-                                <select name="itemCode[]" id="itemCode" class="form-control form-control-sm">
-                          <option value="10001699" selected>أقمشة / منسوجات التطريز</option>
-                                 </select>
+                                <select name="itemCode[]" id="itemCode"
+                                                            class="form-control form-control-sm form-select single-select" required>
+                                                            @foreach ($products as $product)
+                                                                <option value="{{ $product['itemCode'] }}"
+                                                                    style="font-size: 20px">
+                                                                    {{ $product['codeNameSecondaryLang'] }}
+                                                            @endforeach
+                                </select>
                              </div>
                                 <div class="mb-3">
                                     <label for="inputProductDescription" class="form-label">@lang("site.Line Decription") ${i}</label>

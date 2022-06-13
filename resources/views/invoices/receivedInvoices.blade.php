@@ -45,14 +45,16 @@
     <div class="card">
         <div class="card-body">
             <div class="table-responsive">
-                <table id="example2" class="table table-striped table-bordered">
+                <table id="example2" class="table table-striped table-bordered text-center">
                     <thead>
                         <tr>
                             <th>@lang('site.Reciever_Name')</th>
                             <th>@lang('site.Total')</th>
                             <th>@lang('site.invoice status')</th>
+                            <th>الرقم الإلكترونى </th>
                             <th>@lang('site.internalid') </th>
-                            <th>@lang('site.uuid') </th>
+                            <th>تاريخ تسجيل الفاتورة </th>
+                            <th>تاريخ إصدار الفاتورة </th>
                             <th>@lang('site.doc_view')</th>
                             <th>@lang('site.doc_Download')</th>
                             <th>@lang('site.doc_cancel')</th>
@@ -76,6 +78,8 @@
                             @endif
                             <td> {{ ($invoice['uuid']) }}</td>
                             <td> {{ ($invoice['internalId']) }}</td>
+                            <td> {{ Carbon\Carbon::parse($invoice['dateTimeIssued'])->format('d-m-Y') }}</td>
+                            <td> {{ Carbon\Carbon::parse($invoice['dateTimeReceived'])->format('d-m-Y') }}</td>
 
                             <td><a href="https://invoicing.eta.gov.eg/print/documents/{{ $invoice['uuid']}}/share/{{ $invoice['longId'] }}" target="_blank"
                                     class="btn btn-success">@lang('site.viewinportal')</a>

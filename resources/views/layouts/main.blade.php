@@ -55,11 +55,11 @@
                 <div>
                     @if (LaravelLocalization::getCurrentLocale() == 'en')
                         <a href="{{ url('/') }}">
-                            <h4 class="logo-text">الكواترو للتصدير والتوريدات العمومية</h4>
+                            <h4 class="logo-text">الدولية تريدنج نبيل عبد الحليم جوهر وشركاه</h4>
                         </a>
                     @else
                         <a href="{{ url('/') }}">
-                            <h4 class="logo-text">الكواترو للتصدير والتوريدات العمومية</h4>
+                            <h4 class="logo-text">الدولية تريدنج نبيل عبد الحليم جوهر وشركاه</h4>
                         </a>
                     @endif
 
@@ -360,8 +360,8 @@
                 class='bx bxs-up-arrow-alt'></i></a>
         <!--End Back To Top Button-->
         <footer class="page-footer">
-            <p class="mb-0">Copyright © 2021. Developed By <a href="" target=".blank">الكواترو للتصدير
-                    والتوريدات العمومية Team</a></p>
+            <p class="mb-0">Copyright © 2021. Developed By <a href="" target=".blank">الدولية تريدنج نبيل عبد الحليم جوهر وشركاه
+                    </a></p>
         </footer>
     </div>
     @if (session()->has('modal'))
