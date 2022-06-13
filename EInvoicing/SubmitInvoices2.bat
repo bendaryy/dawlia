@@ -1,2 +1,2 @@
-C:\laragon\www\cwatro\EInvoicing\publish/EInvoicingSigner.exe  C:\laragon\www\cwatro\EInvoicing 12345678 "Egypt Trust Sealing CA"
+D:\laragon\www\dawlia\EInvoicing\publish/EInvoicingSigner.exe  D:\laragon\www\dawlia\EInvoicing 12345678 "Egypt Trust Sealing CA"
 PAUSE
