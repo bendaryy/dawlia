@@ -85,10 +85,11 @@
                                         @endif
                                         @if ($package['status'] == 2)
                                             <td>
-                                                <form action="{{ route('downloadPackage', $package['packageId']) }}"
+                                                {{-- <form action="{{ route('downloadPackage', $package['packageId']) }}"
                                                     method="get">
                                                     <button type="submit" class="btn btn-success">تحميل</button>
-                                                </form>
+                                                </form> --}}
+                                                 <a class="btn btn-success" href="{{ route('downloadPackage', $package['packageId']) }}">تحميل</a>
                                             </td>
                                         @else
                                             <td>غير متاح</td>
