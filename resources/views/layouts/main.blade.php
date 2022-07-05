@@ -117,10 +117,10 @@
                         <div class="menu-title">@lang('site.documents')</div>
                     </a>
                     <ul>
-                        <li> <a href="{{ route('sentInvoices') }}">
+                        <li> <a href="{{ route('sentInvoices','1') }}">
                                 <i class="bx bx-right-arrow-alt"></i>@lang('site.sent_documents')</a>
                         </li>
-                        <li> <a href="{{ route('receivedInvoices') }}">
+                        <li> <a href="{{ route('receivedInvoices','1') }}">
                                 <i class="bx bx-right-arrow-alt"></i>@lang('site.received_documents')</a>
                         </li>
                         <li> <a href="{{ route('createInvoice') }}">

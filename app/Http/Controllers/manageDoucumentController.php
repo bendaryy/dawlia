@@ -11,7 +11,7 @@ class manageDoucumentController extends Controller
 {
 
     // this is for show sent inovices
-    public function sentInvoices()
+    public function sentInvoices($id)
     {
         $response = Http::asForm()->post('https://id.eta.gov.eg/connect/token', [
             'grant_type' => 'client_credentials',
@@ -22,19 +22,19 @@ class manageDoucumentController extends Controller
 
         $showInvoices = Http::withHeaders([
             "Authorization" => 'Bearer ' . $response['access_token'],
-        ])->get('https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageSize=2000000000');
+        ])->get("https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageNo=$id&pageSize=50");
 
         $allInvoices = $showInvoices['result'];
 
         $allMeta = $showInvoices['metadata'];
         $taxId = auth()->user()->details->company_id;
 
-        return view('invoices.sentInvoices', compact('allInvoices', 'allMeta', 'taxId'));
+        return view('invoices.sentInvoices', compact('allInvoices', 'allMeta', 'taxId', 'id'));
     }
 
     // this is for show recieved inovices
 
-    public function receivedInvoices()
+    public function receivedInvoices($id)
     {
         $response = Http::asForm()->post('https://id.eta.gov.eg/connect/token', [
             'grant_type' => 'client_credentials',
@@ -45,14 +45,14 @@ class manageDoucumentController extends Controller
 
         $showInvoices = Http::withHeaders([
             "Authorization" => 'Bearer ' . $response['access_token'],
-        ])->get('https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageSize=2000000000');
+        ])->get("https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageNo=$id&pageSize=100");
 
         $allInvoices = $showInvoices['result'];
 
         $allMeta = $showInvoices['metadata'];
         $taxId = auth()->user()->details->company_id;
 
-        return view('invoices.receivedInvoices', compact('allInvoices', 'allMeta', 'taxId'));
+        return view('invoices.receivedInvoices', compact('allInvoices', 'allMeta', 'taxId','id'));
     }
 
     public function invoiceDollar(Request $request)
@@ -100,7 +100,6 @@ class manageDoucumentController extends Controller
 
                 ),
                 "type" => $request->receiverType,
-
 
             ),
             "documentType" => $request->DocumentType,

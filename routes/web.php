@@ -103,8 +103,8 @@ Route::group(
 
 // all invoice status
 
-            Route::get('sentInvoices', [manageDoucumentController::class, 'sentInvoices'])->name('sentInvoices');
-            Route::get('receivedInvoices', [manageDoucumentController::class, 'receivedInvoices'])->name('receivedInvoices');
+            Route::get('sentInvoices/{id}', [manageDoucumentController::class, 'sentInvoices'])->name('sentInvoices');
+            Route::get('receivedInvoices/{id}', [manageDoucumentController::class, 'receivedInvoices'])->name('receivedInvoices');
             Route::get('createInvoice', [manageDoucumentController::class, 'createInvoice'])->name('createInvoice');
             Route::get('createInvoice/create2', [manageDoucumentController::class, 'createInvoice2'])->name('createInvoice2');
             Route::get('createInvoiceDollar', [manageDoucumentController::class, 'createInvoiceDollar'])->name('createInvoiceDollar');

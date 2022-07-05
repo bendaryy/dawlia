@@ -70,7 +70,7 @@
                 </div></a>
             </div>
             <div class="col">
-                <a href="{{ route('sentInvoices') }}">
+                <a href="{{ route('sentInvoices','1') }}">
                 <div class="card radius-10">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
@@ -86,7 +86,7 @@
                 </div></a>
             </div>
             <div class="col">
-                <a href="{{ route('receivedInvoices') }}">
+                <a href="{{ route('receivedInvoices','1') }}">
                 <div class="card radius-10">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
