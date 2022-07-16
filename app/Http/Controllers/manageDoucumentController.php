@@ -392,7 +392,7 @@ class manageDoucumentController extends Controller
             unlink($path2);
             unlink($path3);
             unlink($path4);
-            return redirect()->route('sentInvoices')->with('success', 'تم تسجيل الفاتورة بنجاح ');
+            return redirect()->route('sentInvoices','1')->with('success', 'تم تسجيل الفاتورة بنجاح ');
             // return $invoice->body();
 
         } else {
@@ -400,8 +400,8 @@ class manageDoucumentController extends Controller
             unlink($path2);
             unlink($path3);
             unlink($path4);
-            // return $invoice->body();
-            return redirect()->route('sentInvoices')->with('error', "يوجد خطأ فى الفاتورة من فضلك اعد تسجيلها");
+            return $invoice->body();
+            // return redirect()->route('sentInvoices','1')->with('error', "يوجد خطأ فى الفاتورة من فضلك اعد تسجيلها");
         }
     }
 
