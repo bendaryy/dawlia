@@ -61,7 +61,10 @@
                         <tbody>
 
                             @foreach ($allInvoices as $invoice)
-                                @if ($invoice['receiverId'] == auth()->user()->details->company_id && $invoice['rejectRequestDate'] !== null && $invoice['status'] === 'Valid' && $invoice['declineRejectRequestDate'] === null)
+                                @if ($invoice['receiverId'] == auth()->user()->details->company_id &&
+                                    $invoice['rejectRequestDate'] !== null &&
+                                    $invoice['status'] === 'Valid' &&
+                                    $invoice['declineRejectRequestDate'] === null)
                                     <tr>
                                         <td>{{ $invoice['issuerName'] }}</td>
                                         <td>{{ $invoice['total'] }} EGP</td>
@@ -88,6 +91,25 @@
                         </tbody>
 
                     </table>
+                    <nav aria-label="Page navigation example">
+
+                        {{-- {{ $allMeta['totalPages'] }} --}}
+
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" {{ $id == 1 ? 'style=display:none' : '' }}
+                                    href="{{ route('requestRejected', $id - 1) }}">السابق</a></li>
+                            @for ($i = 1; $i <= $allMeta['totalPages']; $i++)
+                                <li class="page-item"><a class="page-link"
+                                        {{ $i == $id ? 'style=background-color:#CCC' : '' }}
+                                        href="{{ route('requestRejected', $i) }}">{{ $i }}</a></li>
+                            @endfor
+                            <li class="page-item"><a class="page-link"
+                                    {{ $id == $allMeta['totalPages'] ? 'style=display:none' : '' }}
+                                    href="{{ route('requestRejected', $id + 1) }}">التالى</a></li>
+
+
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -108,7 +130,7 @@
             var table = $('#example2').DataTable({
                 lengthChange: false,
                 buttons: ['copy', 'excel', 'pdf', 'print'],
-                sort: false
+                sort: false "paging": false
             });
 
             table.buttons().container()

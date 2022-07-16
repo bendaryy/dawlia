@@ -9,7 +9,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a></li>
-                        <li class="breadcrumb-item active" aria-current="page">    تم الغائها من خلال العملاء
+                        <li class="breadcrumb-item active" aria-current="page"> تم الغائها من خلال العملاء
                         </li>
                     </ol>
                 </nav>
@@ -65,7 +65,7 @@
                                         <td>{{ $invoice['issuerName'] }}</td>
                                         <td>{{ $invoice['total'] }} EGP</td>
                                         @if ($invoice['status'] === 'Cancelled')
-                                            <td>تم الغائها من خلالنا</td>
+                                            <td>تم الغائها من خلال الشركة</td>
                                         @endif
 
                                         {{-- <td> {{ Carbon\Carbon::parse($invoice['dateTimeIssued'])->format('d-m-Y') }}</td> --}}
@@ -82,6 +82,25 @@
                         </tbody>
 
                     </table>
+                     <nav aria-label="Page navigation example">
+
+                        {{-- {{ $allMeta['totalPages'] }} --}}
+
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" {{ $id == 1 ? 'style=display:none' : '' }}
+                                    href="{{ route('companyAllCancell', $id - 1) }}">السابق</a></li>
+                            @for ($i = 1; $i <= $allMeta['totalPages']; $i++)
+                                <li class="page-item"><a class="page-link"
+                                        {{ $i == $id ? 'style=background-color:#CCC' : '' }}
+                                        href="{{ route('companyAllCancell', $i) }}">{{ $i }}</a></li>
+                            @endfor
+                            <li class="page-item"><a class="page-link"
+                                    {{ $id == $allMeta['totalPages'] ? 'style=display:none' : '' }}
+                                    href="{{ route('companyAllCancell', $id + 1) }}">التالى</a></li>
+
+
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -102,7 +121,8 @@
             var table = $('#example2').DataTable({
                 lengthChange: false,
                 buttons: ['copy', 'excel', 'pdf', 'print'],
-                sort: false
+                sort: false,
+                "paging": false
             });
 
             table.buttons().container()

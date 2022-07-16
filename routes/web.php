@@ -144,14 +144,14 @@ Route::group(
             });
 
             // حالات الفواتير من خلالنا و من خلال العملاء
-            Route::get('RequestcancelledDoc', [manageDoucumentController::class, 'RequestcancelledDoc'])->name('RequestCancell')->middleware('auth');
-            Route::get('CompaniesRequestcancelledDoc', [manageDoucumentController::class, 'companiesRequestcancelledDoc'])->name('CompaniesRequestCancell')->middleware('auth');
-            Route::get('cancelleddoc', [manageDoucumentController::class, 'cancelledDoc'])->name('allCancell')->middleware('auth');
-            Route::get('companyCancelleddoc', [manageDoucumentController::class, 'companyCancelledDoc'])->name('companyAllCancell')->middleware('auth');
-            Route::get('rejected', [manageDoucumentController::class, 'rejected'])->name('allRejected')->middleware('auth');
-            Route::get('companyrejected', [manageDoucumentController::class, 'companyRejected'])->name('companyRejected')->middleware('auth');
-            Route::get('requestcompanyrejected', [manageDoucumentController::class, 'requestCompanyRejected'])->name('requestCompanyRejected')->middleware('auth');
-            Route::get('requestRejected', [manageDoucumentController::class, 'requestRejected'])->name('requestRejected')->middleware('auth');
+            Route::get('RequestcancelledDoc/{id}', [manageDoucumentController::class, 'RequestcancelledDoc'])->name('RequestCancell')->middleware('auth');
+            Route::get('CompaniesRequestcancelledDoc/{id}', [manageDoucumentController::class, 'companiesRequestcancelledDoc'])->name('CompaniesRequestCancell')->middleware('auth');
+            Route::get('cancelleddoc/{id}', [manageDoucumentController::class, 'cancelledDoc'])->name('allCancell')->middleware('auth');
+            Route::get('companyCancelleddoc/{id}', [manageDoucumentController::class, 'companyCancelledDoc'])->name('companyAllCancell')->middleware('auth');
+            Route::get('rejected/{id}', [manageDoucumentController::class, 'rejected'])->name('allRejected')->middleware('auth');
+            Route::get('companyrejected/{id}', [manageDoucumentController::class, 'companyRejected'])->name('companyRejected')->middleware('auth');
+            Route::get('requestcompanyrejected/{id}', [manageDoucumentController::class, 'requestCompanyRejected'])->name('requestCompanyRejected')->middleware('auth');
+            Route::get('requestRejected/{id}', [manageDoucumentController::class, 'requestRejected'])->name('requestRejected')->middleware('auth');
             Route::put('DeclineRejectDocument/{uuid}', [manageDoucumentController::class, 'DeclineRejectDocument'])->name('declineRejectDocument')->middleware('auth');
             Route::put('DeclineCancelDocument/{uuid}', [manageDoucumentController::class, 'DeclineCancelDocument'])->name('declineCancellDocument')->middleware('auth');
 

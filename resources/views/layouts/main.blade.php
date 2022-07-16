@@ -144,16 +144,16 @@
                         <div class="menu-title">حالات الوثائق من خلالنا</div>
                     </a>
                     <ul>
-                        <li> <a href="{{ route('RequestCancell') }}">
+                        <li> <a href="{{ route('RequestCancell','1') }}">
                                 <i class="bx bx-right-arrow-alt"></i>تم تقديم طلب لإلغائها</a>
                         </li>
-                        <li> <a href="{{ route('allCancell') }}">
+                        <li> <a href="{{ route('allCancell','1') }}">
                                 <i class="bx bx-right-arrow-alt"></i>تم  إلغائها</a>
                         </li>
-                        <li> <a href="{{ route('allRejected') }}">
+                        <li> <a href="{{ route('allRejected','1') }}">
                                 <i class="bx bx-right-arrow-alt"></i>تم رفضها</a>
                         </li>
-                        <li> <a href="{{ route('requestRejected') }}">
+                        <li> <a href="{{ route('requestRejected','1') }}">
                                 <i class="bx bx-right-arrow-alt"></i>تم تقديم طلب لرفضها</a>
                         </li>
 
@@ -172,16 +172,16 @@
                         <div class="menu-title">حالات الوثائق من خلال العملاء</div>
                     </a>
                     <ul>
-                        <li> <a href="{{ route('CompaniesRequestCancell') }}">
+                        <li> <a href="{{ route('CompaniesRequestCancell','1') }}">
                                 <i class="bx bx-right-arrow-alt"></i>تم تقديم طلب لإلغائها</a>
                         </li>
-                        <li> <a href="{{ route('companyAllCancell') }}">
+                        <li> <a href="{{ route('companyAllCancell','1') }}">
                                 <i class="bx bx-right-arrow-alt"></i>تم الغائها</a>
                         </li>
-                          <li> <a href="{{ route('companyRejected') }}">
+                          <li> <a href="{{ route('companyRejected','1') }}">
                                 <i class="bx bx-right-arrow-alt"></i>تم رفضها</a>
                         </li>
-                          <li> <a href="{{ route('requestCompanyRejected') }}">
+                          <li> <a href="{{ route('requestCompanyRejected','1') }}">
                                 <i class="bx bx-right-arrow-alt"></i>تم تقديم طلب لرفضها</a>
                         </li>
 

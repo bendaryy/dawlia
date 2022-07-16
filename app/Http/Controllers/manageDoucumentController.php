@@ -663,7 +663,7 @@ class manageDoucumentController extends Controller
         }
     }
 
-    public function RequestcancelledDoc()
+    public function RequestcancelledDoc($id)
     {
         $response = Http::asForm()->post('https://id.eta.gov.eg/connect/token', [
             'grant_type' => 'client_credentials',
@@ -674,15 +674,15 @@ class manageDoucumentController extends Controller
 
         $showInvoices = Http::withHeaders([
             "Authorization" => 'Bearer ' . $response['access_token'],
-        ])->get('https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageSize=2000000000');
+        ])->get("https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageNo=$id&pageSize=100");
 
         $allInvoices = $showInvoices['result'];
 
         $allMeta = $showInvoices['metadata'];
-        return view('invoices.requestCancelled', compact('allInvoices', 'allMeta'));
+        return view('invoices.requestCancelled', compact('allInvoices', 'allMeta','id'));
     }
 
-    public function companiesRequestcancelledDoc()
+    public function companiesRequestcancelledDoc($id)
     {
         $response = Http::asForm()->post('https://id.eta.gov.eg/connect/token', [
             'grant_type' => 'client_credentials',
@@ -693,15 +693,15 @@ class manageDoucumentController extends Controller
 
         $showInvoices = Http::withHeaders([
             "Authorization" => 'Bearer ' . $response['access_token'],
-        ])->get('https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageSize=2000000000');
+        ])->get("https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageNo=$id&pageSize=100");
 
         $allInvoices = $showInvoices['result'];
 
         $allMeta = $showInvoices['metadata'];
-        return view('invoices.companiesRequestCancelled', compact('allInvoices', 'allMeta'));
+        return view('invoices.companiesRequestCancelled', compact('allInvoices', 'allMeta','id'));
     }
 
-    public function cancelledDoc()
+    public function cancelledDoc($id)
     {
         $response = Http::asForm()->post('https://id.eta.gov.eg/connect/token', [
             'grant_type' => 'client_credentials',
@@ -712,15 +712,15 @@ class manageDoucumentController extends Controller
 
         $showInvoices = Http::withHeaders([
             "Authorization" => 'Bearer ' . $response['access_token'],
-        ])->get('https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageSize=2000000000');
+        ])->get("https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageNo=$id&pageSize=100");
 
         $allInvoices = $showInvoices['result'];
 
         $allMeta = $showInvoices['metadata'];
-        return view('invoices.showCancelled', compact('allInvoices', 'allMeta'));
+        return view('invoices.showCancelled', compact('allInvoices', 'allMeta','id'));
     }
 
-    public function companyCancelledDoc()
+    public function companyCancelledDoc($id)
     {
         $response = Http::asForm()->post('https://id.eta.gov.eg/connect/token', [
             'grant_type' => 'client_credentials',
@@ -731,15 +731,15 @@ class manageDoucumentController extends Controller
 
         $showInvoices = Http::withHeaders([
             "Authorization" => 'Bearer ' . $response['access_token'],
-        ])->get('https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageSize=2000000000');
+        ])->get("https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageNo=$id&pageSize=100");
 
         $allInvoices = $showInvoices['result'];
 
         $allMeta = $showInvoices['metadata'];
-        return view('invoices.showCompanyCancelled', compact('allInvoices', 'allMeta'));
+        return view('invoices.showCompanyCancelled', compact('allInvoices', 'allMeta','id'));
     }
 
-    public function rejected()
+    public function rejected($id)
     {
         $response = Http::asForm()->post('https://id.eta.gov.eg/connect/token', [
             'grant_type' => 'client_credentials',
@@ -750,15 +750,15 @@ class manageDoucumentController extends Controller
 
         $showInvoices = Http::withHeaders([
             "Authorization" => 'Bearer ' . $response['access_token'],
-        ])->get('https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageSize=2000000000');
+        ])->get("https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageNo=$id&pageSize=100");
 
         $allInvoices = $showInvoices['result'];
 
         $allMeta = $showInvoices['metadata'];
-        return view('invoices.showRejected', compact('allInvoices', 'allMeta'));
+        return view('invoices.showRejected', compact('allInvoices', 'allMeta','id'));
     }
 
-    public function companyRejected()
+    public function companyRejected($id)
     {
         $response = Http::asForm()->post('https://id.eta.gov.eg/connect/token', [
             'grant_type' => 'client_credentials',
@@ -769,15 +769,15 @@ class manageDoucumentController extends Controller
 
         $showInvoices = Http::withHeaders([
             "Authorization" => 'Bearer ' . $response['access_token'],
-        ])->get('https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageSize=2000000000');
+        ])->get("https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageNo=$id&pageSize=100");
 
         $allInvoices = $showInvoices['result'];
 
         $allMeta = $showInvoices['metadata'];
-        return view('invoices.companyRejected', compact('allInvoices', 'allMeta'));
+        return view('invoices.companyRejected', compact('allInvoices', 'allMeta','id'));
     }
 
-    public function requestCompanyRejected()
+    public function requestCompanyRejected($id)
     {
         $response = Http::asForm()->post('https://id.eta.gov.eg/connect/token', [
             'grant_type' => 'client_credentials',
@@ -788,15 +788,15 @@ class manageDoucumentController extends Controller
 
         $showInvoices = Http::withHeaders([
             "Authorization" => 'Bearer ' . $response['access_token'],
-        ])->get('https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageSize=2000000000');
+        ])->get("https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageNo=$id&pageSize=100");
 
         $allInvoices = $showInvoices['result'];
 
         $allMeta = $showInvoices['metadata'];
-        return view('invoices.RequestCompanyRejected', compact('allInvoices', 'allMeta'));
+        return view('invoices.RequestCompanyRejected', compact('allInvoices', 'allMeta','id'));
     }
 
-    public function requestRejected()
+    public function requestRejected($id)
     {
         $response = Http::asForm()->post('https://id.eta.gov.eg/connect/token', [
             'grant_type' => 'client_credentials',
@@ -807,12 +807,12 @@ class manageDoucumentController extends Controller
 
         $showInvoices = Http::withHeaders([
             "Authorization" => 'Bearer ' . $response['access_token'],
-        ])->get('https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageSize=2000000000');
+        ])->get("https://api.invoicing.eta.gov.eg/api/v1.0/documents/recent?pageNo=$id&pageSize=100");
 
         $allInvoices = $showInvoices['result'];
 
         $allMeta = $showInvoices['metadata'];
-        return view('invoices.RequestRejected', compact('allInvoices', 'allMeta'));
+        return view('invoices.RequestRejected', compact('allInvoices', 'allMeta','id'));
     }
 
 }
